@@ -1,6 +1,11 @@
 function onClick(info, tab) {
 	var url = "http://de.wiktionary.org/w/index.php?search=" + info.selectionText;
-	chrome.tabs.create({"url": url});
+	var tabProperties = {
+		"url": url,
+		"active": false,
+		"index": tab.index,
+	};
+	chrome.tabs.create(tabProperties);
 }
 
 var createProperties = {
